@@ -6,7 +6,7 @@ class Canopy:
 
     def __init__(self, name, size):
         self.name = str(name)
-        self.S = int(size)
+        self.S = int(size) # Surface area
         
         self.model = {
             'sabre2'       : 'SA2',
@@ -17,6 +17,7 @@ class Canopy:
             'valkyrie'     : 'VK'
         }.get(self.name.lower(), 'UNK')
 
+        # AR = Aspect Ratio
         self.AR = {
             'SA2'          : 2.58,
             'SA3'          : 2.59,
@@ -26,6 +27,7 @@ class Canopy:
             'VK'           : 2.84
         }.get(self.model, 'UNK')
 
+        # c = chord length
         if self.model == 'SA2':
             self.c = {
                 97         : 5.85,
@@ -36,6 +38,8 @@ class Canopy:
             self.c = 0
 
         self.R = 110.85 / 12 # feet - Sabre2 120, averaged across A lines
+        self.b = 0 # curved span of the canopy (feet)
+        self.CL_airfoil = 1.3 # airfoil lift-curve slope
 
     def print_fields(self):
         print("name: " + self.name)
