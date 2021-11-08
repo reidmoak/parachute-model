@@ -8,7 +8,8 @@ import aero
 import canopy.canopy as canopy
 
 # @TODO: Create functions with multiple unit test cases for each function...
-# Use actual test features in Python
+# @TODO: Use actual test features in Python (assert, etc.)
+# @TODO: Break up function unit tests into separate files?
 
 c = canopy.Canopy('Sabre2', 120)
 alpha = 0.175
