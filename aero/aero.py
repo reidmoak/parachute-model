@@ -1,5 +1,9 @@
+#!/usr/bin/env python3
+
 import numpy as np
-from canopy import Canopy
+import sys
+
+sys.path.append("..")
 
 # CONSTANTS @TODO DEFINE THESE
 ALPHA_0 = 0
@@ -18,8 +22,8 @@ def body_to_wind(u):
     # beta = bank angle (wind-axes)
 
     V = np.linalg.norm(u)
-    alpha = np.arctan2(u[3], u[1])
-    beta = np.arcsin(u[2] / V)
+    alpha = np.arctan2(u[2], u[0])
+    beta = np.arcsin(u[1] / V)
 
     return [beta, alpha, V]
 
