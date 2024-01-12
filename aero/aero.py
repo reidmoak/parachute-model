@@ -35,7 +35,7 @@ def compute_CL_alpha(canopy):
      
 def compute_CL_lines(canopy, alpha):
     CL_lines = (-1 * canopy.num_lines * canopy.line_d * canopy.R
-                * ((np.cos(alpha + MU))^2) * (np.sin(alpha + MU))^2
+                * ((np.cos(alpha + MU))**2) * (np.sin(alpha + MU))**2
                 / canopy.S)
     return CL_lines
 
@@ -54,8 +54,8 @@ def compute_k1(canopy):
  
 def compute_CL_sys(canopy, alpha, CL_pilot):
     CL_wing = (compute_CL_alpha(canopy) * (alpha - ALPHA_0) 
-               * (np.cos(compute_epsilon(canopy)))^2
-               + compute_k1(canopy) * (np.sin(alpha - ALPHA_0))^2
+               * (np.cos(compute_epsilon(canopy)))**2
+               + compute_k1(canopy) * (np.sin(alpha - ALPHA_0))**2
                * np.cos(alpha - ALPHA_0))
 
     CL_lines = compute_CL_lines(canopy, alpha) 
@@ -63,12 +63,12 @@ def compute_CL_sys(canopy, alpha, CL_pilot):
     return (CL_wing + CL_lines + CL_pilot)
 
 def compute_CD_sys(canopy, alpha, CD_pilot):
-    CD_wing = (CD_0 + (compute_CL_alpha(canopy)^2 * (alpha - ALPHA_0)^2
+    CD_wing = (CD_0 + (compute_CL_alpha(canopy)**2 * (alpha - ALPHA_0)**2
                 * (1 + LAMBDA) / (np.pi * canopy.AR))
-                + compute_k1(canopy) * (np.sin(alpha - ALPHA_0))^3)
+                + compute_k1(canopy) * (np.sin(alpha - ALPHA_0))**3)
 
     CD_lines = ((canopy.num_lines * canopy.line_d * canopy.R
-                * (np.cos(alpha + MU))^3) / canopy.S)
+                * (np.cos(alpha + MU))**3) / canopy.S)
 
     return (CD_wing + CD_lines + CD_pilot)
 

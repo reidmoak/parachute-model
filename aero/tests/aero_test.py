@@ -13,6 +13,8 @@ import canopy.canopy as canopy
 
 c = canopy.Canopy('Sabre2', 120)
 alpha = 0.175
+CD_pilot = 0.5
+CL_pilot = 0.01
 
 def body_to_wind_test():
     print("Test: body_to_wind")
@@ -26,10 +28,22 @@ print("Test: compute_CL_alpha")
 print(aero.compute_CL_alpha(c))
 print("")
 
-#print("Test: compute_CL_lines")
-#print(aero.compute_CL_lines(c, alpha))
+print("Test: compute_CL_lines")
+print(aero.compute_CL_lines(c, alpha))
+print("")
 
 print("Test: compute_epsilon")
 print(aero.compute_epsilon(c))
 print("")
 
+print("Test: compute_k1")
+print(aero.compute_k1(c))
+print("")
+
+print("Test: compute_CL_sys")
+print(aero.compute_CL_sys(c, alpha, CL_pilot))
+print("")
+
+print("Test: compute_CD_sys")
+print(aero.compute_CD_sys(c, alpha, CD_pilot))
+print("")

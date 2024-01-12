@@ -38,8 +38,11 @@ class Canopy:
             self.c = 0
 
         self.R = 110.85 / 12 # feet - Sabre2 120, averaged across A lines
-        self.b = 0 # curved span of the canopy (feet)
+        self.b = 15 # curved span of the canopy (feet)
         self.CL_airfoil = 1.3 # airfoil lift-curve slope
+        
+        self.num_lines = 150
+        self.line_d = 0.01
 
     def print_fields(self):
         print("name: " + self.name)
